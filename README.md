@@ -60,7 +60,7 @@ A simple and fun **Tic Tac Toe** game built using **HTML**, **CSS**, and **JavaS
 tictactoe-game/
 ├── index.html
 ├── style.css
-├── script.js
+├── scripts.js
 ├── screenshot.png
 └── README.md
 ```

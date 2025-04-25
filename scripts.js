@@ -1,94 +1,115 @@
-let boxes=document.querySelectorAll('.cell');
-let resetBtn=document.querySelector('#resetBtn');
-let newGame=document.querySelector('#newGame');
-let winercont=document.querySelector('.winnercontainer');
-let resetGame=document.querySelector('#resetBtn');
-let msg=document.querySelector('#msg');
+// Select all game board cells
+let boxes = document.querySelectorAll('.cell');
 
-let trunO=true;//player o other wise player x
-let count=0;
-const winPattern=[
-    [0,1,2],
-    [0,3,6],
-    [0,4,8],
-    [1,4,7],
-    [2,5,8],
-    [2,4,6],
-    [3,4,5],
-    [6,7,8]
+// Select buttons and message elements
+let resetBtn = document.querySelector('#resetBtn');
+let newGame = document.querySelector('#newGame');
+let winnerContainer = document.querySelector('.winnercontainer');
+let msg = document.querySelector('#msg');
+
+// Track which player's turn it is — true for 'O', false for 'X'
+let turnO = true;
+
+// Counter to track number of moves (to detect draw)
+let count = 0;
+
+// All possible winning combinations (indexes of cells)
+const winPatterns = [
+    [0, 1, 2],
+    [0, 3, 6],
+    [0, 4, 8],
+    [1, 4, 7],
+    [2, 5, 8],
+    [2, 4, 6],
+    [3, 4, 5],
+    [6, 7, 8]
 ];
 
-boxes.forEach(box=>{ // using the forEach method we get the querySelector allList and get the value
-    box.addEventListener("click",()=>{ // using this callback functions & eventListner we doing some work
-        if(trunO){
-            box.innerText="O";
-            trunO=false;
-        }else{
-            box.innerText="X";
-            trunO=true;
+// Add click event listeners to each cell
+boxes.forEach(box => {
+    box.addEventListener("click", () => {
+        // Place either 'O' or 'X' depending on turn
+        if (turnO) {
+            box.innerText = "O";
+            turnO = false;
+        } else {
+            box.innerText = "X";
+            turnO = true;
         }
-        box.disabled=true;
+
+        // Disable the clicked cell
+        box.disabled = true;
         count++;
-        let isWinner =  checkWinner();
-        if(count==9 && !isWinner){
-            gamedraw();
+
+        // Check if there's a winner
+        let isWinner = checkWinner();
+
+        // If all boxes filled and no winner, it's a draw
+        if (count === 9 && !isWinner) {
+            gameDraw();
         }
-       
     });
 });
 
-const gamedraw=()=>{
-    msg.innerText=`Game was a Draw.`;
+// Function to handle draw game
+const gameDraw = () => {
+    msg.innerText = `Game was a Draw.`;
     msg.classList.add("draw");
-    winercont.classList.remove('hide');
-    disabledBoxes();
+    winnerContainer.classList.remove('hide');
+    disableBoxes();
 }
 
-
-const Btnreset=()=>{
-    trunO=true;
+// Function to reset the game
+const resetGame = () => {
+    turnO = true;
+    count = 0;
     enableBoxes();
-    winercont.classList.add('hide');
+    winnerContainer.classList.add('hide');
+    msg.classList.remove("draw", "winner");
+    msg.innerText = "";
 }
-const enableBoxes=()=>{
-    for (const box of boxes) {
-        box.disabled=false;
-        box.innerText="";
+
+// Function to enable all cells (used when resetting the game)
+const enableBoxes = () => {
+    boxes.forEach(box => {
+        box.disabled = false;
+        box.innerText = "";
+    });
+}
+
+// Function to disable all cells (used when game ends)
+const disableBoxes = () => {
+    boxes.forEach(box => {
+        box.disabled = true;
+    });
+}
+
+// Function to check for a winner
+const checkWinner = () => {
+    for (const pattern of winPatterns) {
+        let pos1 = boxes[pattern[0]].innerText;
+        let pos2 = boxes[pattern[1]].innerText;
+        let pos3 = boxes[pattern[2]].innerText;
+
+        // Check if all three positions are filled and equal
+        if (pos1 !== "" && pos2 !== "" && pos3 !== "") {
+            if (pos1 === pos2 && pos2 === pos3) {
+                showWinner(pos1);
+                return true;
+            }
+        }
     }
+    return false;
 }
 
-const disabledBoxes=()=>{
-    for (const box of boxes) {
-        box.disabled=true;
-    }
+// Function to display winner message
+const showWinner = (winner) => {
+    msg.innerText = `🎉 Congratulations! Player ${winner} Wins!`;
+    msg.classList.add("winner");
+    winnerContainer.classList.remove('hide');
+    disableBoxes();
 }
 
-const checkWinner=()=>{
-    for (const pattern of winPattern) {
-           let pos1Val=boxes[pattern[0]].innerText;
-           let pos2Val=boxes[pattern[1]].innerText;
-           let pos3Val=boxes[pattern[2]].innerText;
-
-           if(pos1Val !="" && pos2Val !="" && pos3Val != ""){
-                if (pos1Val===pos2Val && pos2Val===pos3Val) {
-                    Winner(pos1Val);
-                    return true;
-                }
-           }
-            
-    }
-}
-
-const Winner=(pos1Val)=>{
-    msg.innerText=`Congratulations Winner Player is: ${pos1Val}`;
-    msg.classList.add("winer");
-    winercont.classList.remove('hide');
-    disabledBoxes();
-}
-
-newGame.addEventListener('click',Btnreset);
-resetGame.addEventListener('click',Btnreset);
-
-
-
-
+// Attach event listeners to reset and new game buttons
+newGame.addEventListener('click', resetGame);
+resetBtn.addEventListener('click', resetGame);

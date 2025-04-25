@@ -1,49 +1,56 @@
+/* ===== Base Body Styling ===== */
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: sans-serif;
-    background-color: #f0f0f0;
-    padding: 2rem;
+    display: flex;                      /* Center all content vertically */
+    flex-direction: column;            /* Stack elements in a column */
+    align-items: center;               /* Center elements horizontally */
+    font-family: sans-serif;           /* Clean, modern font */
+    background-color: #f0f0f0;         /* Light gray background */
+    padding: 2rem;                     /* Add spacing around the page */
   }
   
+  /* ===== Main Heading ===== */
   h1 {
-    margin-bottom: 1rem;
+    margin-bottom: 1rem;               /* Spacing below heading */
   }
   
+  /* ===== Game Board Grid ===== */
   .board {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 5px;
-    margin-bottom: 1rem;
+    display: grid;                             /* Use grid layout */
+    grid-template-columns: repeat(3, 100px);   /* 3 columns of 100px */
+    grid-template-rows: repeat(3, 100px);      /* 3 rows of 100px */
+    gap: 5px;                                  /* Space between cells */
+    margin-bottom: 1rem;                       /* Space below board */
   }
   
+  /* ===== Game Cell Styling ===== */
   .cell {
-    background-color: #fff;
-    border: 2px solid #9E9E9E;
-    font-size: 2rem;
-    font-weight: bold;
-    border-radius: 20px;
-    cursor: pointer;
-    outline: none;
-    transition: background 0.3s;
-    color: black;
-    font-weight: 600;
+    background-color: #fff;           /* White background */
+    border: 2px solid #9E9E9E;        /* Light gray border */
+    font-size: 2rem;                  /* Large font for X/O */
+    font-weight: bold;               /* Bold text */
+    border-radius: 20px;              /* Rounded corners */
+    cursor: pointer;                  /* Pointer cursor on hover */
+    outline: none;                    /* Remove focus outline */
+    transition: background 0.3s;      /* Smooth hover transition */
+    color: black;                     /* Text color */
+    font-weight: 600;                 /* Stronger bold */
   }
   
+  /* ===== Cell Hover Effect ===== */
   .cell:hover {
-    background-color: #eee;
+    background-color: #eee;           /* Light gray on hover */
   }
   
+  /* ===== Disabled Cell Styling (After Played) ===== */
   .cell:disabled {
-    background-color: #c7f2ff;
+    background-color: #c7f2ff;        /* Light blue to show it's played */
   }
   
+  /* ===== Reset Button Styling ===== */
   #resetBtn {
     padding: 10px 20px;
     font-size: 1rem;
-    background-color: #007BFF;
+    background-color: #007BFF;        /* Bootstrap blue */
     border: none;
     color: white;
     cursor: pointer;
@@ -51,34 +58,42 @@ body {
     transition: background 0.3s;
   }
   
+  /* ===== Reset Button Hover Effect ===== */
   #resetBtn:hover {
-    background-color: #0056b3;
+    background-color: #0056b3;        /* Darker blue on hover */
   }
-
+  
+  /* ===== Winner/Draw Message Container ===== */
   .winnercontainer {
-    text-align: center;
-   
-}
-
-.hide{
-    display: none;
-}
-
-.winer{
-    color:rgb(101, 245, 101);
-}
-.draw{
-    color: rgb(255, 95, 95);
-}
-
-button#newGame {
+    text-align: center;               /* Center the message and button */
+  }
+  
+  /* ===== Hide Utility Class ===== */
+  .hide {
+    display: none;                    /* Used to hide winner message initially */
+  }
+  
+  /* ===== Winner Message Styling ===== */
+  .winer {
+    color: rgb(101, 245, 101);        /* Green text for winner */
+  }
+  
+  /* ===== Draw Message Styling ===== */
+  .draw {
+    color: rgb(255, 95, 95);          /* Red text for draw */
+  }
+  
+  /* ===== New Game Button Styling ===== */
+  button#newGame {
     height: 30px;
     background: black;
     color: white;
     border-radius: 5px;
     font-weight: 600;
-}
-.footer {
+  }
+  
+  /* ===== Footer Styling ===== */
+  .footer {
     margin-top: 2rem;
     font-size: 0.9rem;
     color: #555;

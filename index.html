@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tic Tac Toe</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="winnercontainer hide">
-       <h2 id="msg"></h2>
-        <button type="button" id="newGame">New Game</button>
-    </div>
+
+  <!-- Winner Message & New Game Button -->
+  <div class="winnercontainer hide">
+    <h2 id="msg"></h2>
+    <button type="button" id="newGame">New Game</button>
+  </div>
+
+  <!-- Game Title -->
   <h2>Tic Tac Toe Game Board</h2>
+
+  <!-- 3x3 Game Board -->
   <div class="board">
     <button class="cell" data-cell></button>
     <button class="cell" data-cell></button>
@@ -24,10 +30,15 @@
     <button class="cell" data-cell></button>
   </div>
 
+  <!-- Reset Button -->
   <button id="resetBtn">Reset Game</button>
+
+  <!-- Footer -->
   <footer class="footer">
     © 2025 All Rights Reserved | Developed By <strong>Nazmul Hasan</strong>
   </footer>
+
+  <!-- Script -->
   <script src="scripts.js"></script>
 </body>
 </html>

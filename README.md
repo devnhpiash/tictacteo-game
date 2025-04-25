@@ -84,7 +84,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 If you like this project or have any questions, feel free to reach out!
 
-- GitHub: [@your-username](https://github.com/devnhpiash)
+- GitHub: [@devnhpiash](https://github.com/devnhpiash)
 - Email: developer.nhpiash@gmail.com
 
 ---

@@ -43,7 +43,7 @@ A simple and fun **Tic Tac Toe** game built using **HTML**, **CSS**, and **JavaS
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/tictactoe-game.git
+   git clone https://github.com/devnhpiash/tictactoe-game.git
    ```
 2. **Navigate to the project folder**
    ```bash
@@ -70,7 +70,7 @@ tictactoe-game/
 ## 🙌 Contributing
 
 Contributions, issues, and feature requests are welcome!  
-Feel free to check the [issues page](https://github.com/your-username/tictactoe-game/issues) if you'd like to collaborate.
+Feel free to check the [issues page](https://github.com/devnhpiash/tictactoe-game/issues) if you'd like to collaborate.
 
 ---
 
@@ -84,8 +84,8 @@ This project is open source and available under the [MIT License](LICENSE).
 
 If you like this project or have any questions, feel free to reach out!
 
-- GitHub: [@your-username](https://github.com/your-username)
-- Email: your.email@example.com
+- GitHub: [@your-username](https://github.com/devnhpiash)
+- Email: developer.nhpiash@gmail.com
 
 ---
 
